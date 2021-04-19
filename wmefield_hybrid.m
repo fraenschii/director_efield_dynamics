@@ -13,17 +13,14 @@ function [d,df,w,wf,mphi,phif,Ef,Em,damping,maxgrad,tt,tf]=wmefield_hybrid(input
 % simulation, for an example, see file inputdata1.m
 
 % Output variables:
-% d       - solution of wave map eq
+% d       - director field approximation
 % df      - d for movies, with time dependence
-% w       - angular momentum \pm d x d_t
+% w       - angular momentum d_t x d
 % wf      - w for movies with time dependence
 % phi     - approximation of electric potential at final time  
 % phif    - approximation of electric potential at many time steps (for movie)  
-% e_w     - "w"-part of energy
-% e_d     - "\Grad d" part of energy
-% Em      - e_w+e_d, this part is conserved for dk=0
-% et      - 
-% Hm      - discrete energy as in paper (without w but instead D_t d)
+% Ef      - approximation of the electric field, evolution over time for movies
+% Em      - approximation of reduced energy, evolution over time
 % maxgrad - maximum of discrete gradient at each time step
 
 if  nargin < 1 % some sample initial data if initdata is not specified
